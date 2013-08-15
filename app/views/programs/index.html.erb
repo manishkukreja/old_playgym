@@ -1,0 +1,28 @@
+<h1>Listing programs</h1>
+
+<table>
+  <tr>
+    <th>Program name</th>
+    <th>Free</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @programs.each do |program| %>
+  <tr>
+    <td><%= program.program_name %></td>
+    <td><%= program.free %></td>
+    <td><%= link_to 'Show', program %></td>
+    <% if current_user.admin%>
+      <td><%= link_to 'Edit', edit_program_path(program) %></td>
+      <td><%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%end%>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Program', new_program_path %>
+<%= link_to "Back to Home" ,:root%>

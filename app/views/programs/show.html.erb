@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Program name:</b>
+  <%= @program.program_name %>
+</p>
+
+<p>
+  <b>Free:</b>
+  <%= @program.free %>
+</p>
+
+
+<%= link_to 'Edit', edit_program_path(@program) if current_user.admin%>
+<%= link_to 'Back', programs_path %>
+<%= link_to 'Comments' , program_comments_path(@program)%>

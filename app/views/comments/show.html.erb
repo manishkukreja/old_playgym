@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<%#= raise @comment.inspect%>
+<p>
+  <b>Content:</b>
+  <%= @comment.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @comment.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) if current_user.admin %>
+<%= link_to 'Back', all_comments_comments_path %>
+</br>
+<%= button_to "Delete Comment" , all_comments_comments_path, confirm: "Are you sure?", method: :delete%>

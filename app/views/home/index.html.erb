@@ -1,0 +1,74 @@
+<h1>WelCome to PlayGym</h1>
+
+<%= link_to "Home"%> ||
+
+<div class="horizontal-nav" id="about">
+	<%= link_to "About PlayGym",'#'%> ||
+		<div class="about" style='display:none'>
+			<p><%= link_to "Our Story"%></p>
+			<p><%= link_to "Our Mission"%></p>
+			<p><%= link_to "Our Equipment"%></p>
+			<p><%= link_to "Our Location"%></p>
+		</div>
+</div>
+
+<div class="horizontal-nav" id="membership">
+	<%= link_to "Membership","#"%> ||
+		<div class="membership" style='display:none'>
+			<p><%= link_to "Pay as you Go"%></p>
+			<p><%= link_to "Weakly"%></p>
+			<p><%= link_to "Monthly"%></p>
+			<p><%= link_to "Yearly"%></p>
+		</div>
+</div>
+
+<div class="horizontal-nav" id="program">
+	<%= link_to "Programs & Classes", programs_path%> ||
+		<div class="program" style='display:none'>
+			<p><%= link_to "Free Play"%></p>
+			<p><%= link_to "Rope Climbing"%></p>
+			<p><%= link_to "Wall Climbing"%></p>
+			<p><%= link_to "Trampoline Jumping"%></p>
+		</div>
+</div>
+
+<div class="horizontal-nav" id="event">
+	<%= link_to "Events & Parties	",events_path%> ||
+		<div class="event" style='display:none'>
+			<p><%= link_to "Birthday Parties"%></p>
+			<p><%= link_to "Little Oylumpics"%></p>
+			<p><%= link_to "Story Reading"%></p>
+			<p><%= link_to "Movie Time"%></p>
+		</div>
+</div>
+
+<div class="horizontal-nav" id="partner">
+	<%= link_to "Partners" ,'#'%> ||
+		<div class="partner" style='display:none'>
+			<p><%= link_to "Restraunts"%></p>
+			<p><%= link_to "Bookstores"%></p>
+			<p><%= link_to "Electronic"%></p>
+			<p><%= link_to "Sports Goods"%></p>
+		</div>
+</div>
+
+<div class="horizontal-nav" id="comment">
+	<%= link_to "Spread the Words",'#'%>
+		<div class="comment" style='display:none'>
+			<p><%= link_to "Comments", all_comments_comments_path%></p>
+			<p><%= link_to "Invite a Friend"%></p>
+			<p><%= link_to "Gift Cards"%></p>
+		</div>
+</div>
+
+<div class="fb-like" data-href="http://developers.facebook.com/docs/reference/plugins/like" data-width="450" data-show-faces="true" data-send="true"></div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  		$('.horizontal-nav').click(function(){
+  			 clicked_id = $(this).attr('id');
+  			$('.'+ clicked_id).slideToggle(700)
+  		});
+  })
+</script>

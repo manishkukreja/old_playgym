@@ -1,0 +1,24 @@
+<h1><b>All Comments</b></h1>
+<ul id="comments">
+  <% if @all_comments.size > 0 %>
+    <% @all_comments.each do |comment| %>
+      <p><li><b><%= comment.content %></b> 
+      	<b><%= link_to image_tag('edit_icon.png'),edit_comment_path(comment) %></b>
+      </li>
+        <i>by <%= User.find(comment.user_id).username%> on <%=comment.created_at%> for 
+        	<b>
+	        	<%if comment.commentable_type.eql?('Event')%>
+	        		<%= Event.find(comment.commentable_id).event_name%>
+	        	<%elsif comment.commentable_type.eql?('Program')%>
+	        		<%= Program.find(comment.commentable_id).program_name%>
+	        	<%end%>
+            </b>
+        	<%= comment.commentable_type%>
+        </i>
+      </p>
+    <% end %>
+  <% else%>
+      <p>No Comments yet !!!!</p>  
+  <%end%>
+</ul>
+<h3><%= link_to "Back to HOME" , :root%></h3>

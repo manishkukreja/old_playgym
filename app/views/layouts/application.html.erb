@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Playgym</title>
+  <%#= stylesheet_link_tag  "application", :media => "all" %>
+  <%#= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery.min", "http://cdn.sublimevideo.net/js/3s7oes9q.js","jquery-1.9.1",'jquery.raty.js','letsrate.js.erb' %>
+  <%= csrf_meta_tags %>
+<div id="user_nav">
+  <% if user_signed_in? %>
+
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+</b>
+  <%= flash[:notice]%>
+</div>
+
+</head>
+
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=178653772295729";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  
+  <div class="container">
+    <div class="row">
+      <div class="span9">
+        <%= yield %>
+      </div>
+      <div class="span3">
+        <h3>About US</h3>
+          <p>
+            We are here to provide the children world class play equipment , which they have only seen on screen , never experienced in real. These equipments are 
+            distributed under various categories and programs, some are free to use and 
+            some on pay per use basis. 
+          </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

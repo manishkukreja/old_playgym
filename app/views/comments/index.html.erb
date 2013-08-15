@@ -1,0 +1,29 @@
+<h1>Comments</h1>
+
+<ul id="comments">
+  <% if @comments.size > 0 %>
+    <% @comments.each do |comment| %>
+      <p><li><b><%= comment.content %></b></li>
+        <i>by <%= User.find(comment.user_id).username%> on <%=comment.created_at%></i>
+      </p>
+    <% end %>
+  <% else%>
+      <p>No Comments yet !!!!</p>  
+  <%end%>
+</ul>
+
+<h2>New Comment</h2>
+<%= form_for [@commentable, Comment.new] do |f| %>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content, :rows => 5 %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :user_id %><br />
+    <%#=   f.text_field :user_id %>
+  </div> -->
+  <div class="actions">
+    <%= submit_tag "Add comment" %>
+    <%= link_to "Back to Home", :root%>
+  </div>
+<% end %>
