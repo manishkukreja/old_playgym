@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <title>Playgym</title>
-  <%#= stylesheet_link_tag  "application", :media => "all" %>
+  <%#= stylesheet_link_tag  "application" %>
+  <%= stylesheet_link_tag  :default %>
+  <%= stylesheet_link_tag("http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css", :media => "all")%>
   <%#= javascript_include_tag "application" %>
-  <%= javascript_include_tag "jquery.min", "http://cdn.sublimevideo.net/js/3s7oes9q.js","jquery-1.9.1",'jquery.raty.js','letsrate.js.erb' %>
+  <%#= javascript_include_tag "jquery.min", "http://cdn.sublimevideo.net/js/3s7oes9q.js","jquery-1.9.1",'jquery.raty.js','letsrate.js.erb' %>
   <%= csrf_meta_tags %>
 <div id="user_nav">
   <% if user_signed_in? %>
@@ -13,6 +15,7 @@
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+    <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
   <% end %>
 </b>
   <%= flash[:notice]%>
@@ -35,14 +38,6 @@
     <div class="row">
       <div class="span9">
         <%= yield %>
-      </div>
-      <div class="span3">
-        <h3>About US</h3>
-          <p>
-            We are here to provide the children world class play equipment , which they have only seen on screen , never experienced in real. These equipments are 
-            distributed under various categories and programs, some are free to use and 
-            some on pay per use basis. 
-          </p>
       </div>
     </div>
   </div>

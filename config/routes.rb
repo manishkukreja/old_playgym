@@ -11,6 +11,15 @@ Playgym::Application.routes.draw do
   	match "users/sign_out" => 'devise/sessions#destroy'
   end	
 
+  namespace :parent do
+    resources :child do
+      collection do
+        get :index
+      end
+    end    
+  end
+  
+
   resources :home
   resources :users
   resources :comments do
@@ -20,6 +29,6 @@ Playgym::Application.routes.draw do
   end
 
   root :to => 'home#index'
-  match "/auth/:provider/callback" => "devise/sessions#create"
+  match "/auth/:provider/callback" => "sessions#create"
 end
   
